@@ -90,7 +90,7 @@ $ hexo server
 
 **1.创建Hexo代码项目**
 
-直接fork本项目到自己的GitHub账号下。本仓库内代码与hexo init生成的默认模版内容一致。
+直接fork本项目到自己的GitHub账号下。本仓库内代码与hexo init生成的默认模版内容一致，仅添加了简易可修改的build.sh文件。在部署时云端会自动执行该文件，将您的hexo项目编译成HTML静态文件并存放至指定目录，以便云端将HTML网页发布至云端供访问。
 
 **2.打开云开发平台，完成阿里云账号注册登陆，同意云开发平台服务协议** https://workbench.aliyun.com/application
 
