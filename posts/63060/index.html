@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>利用ImgBot自动压缩Github图床，加速访问 | 笑枕晚风の小站</title><meta name="keywords" content="Github"><meta name="author" content="SEUGarfield"><meta name="copyright" content="SEUGarfield"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="简介  ImgBot 是一个为你节省时间优化图片的机器人。优化图片意味着不牺牲图片质量和更小的文件大小。 安装后不久，你会收到一个优化图片的 pull request。合并这个 pull request 就行了！Imgbot 会伴随你的工作，保持图片的优化。 ImgBot 默认使用无损压缩。  安装 ImgBot 首先来到 GitHub Market，点击 Set up a free trial">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用ImgBot自动压缩Github图床，加速访问">
+<meta property="og:url" content="https://blog.zgzheng.top/posts/63060/index.html">
+<meta property="og:site_name" content="笑枕晚风の小站">
+<meta property="og:description" content="简介  ImgBot 是一个为你节省时间优化图片的机器人。优化图片意味着不牺牲图片质量和更小的文件大小。 安装后不久，你会收到一个优化图片的 pull request。合并这个 pull request 就行了！Imgbot 会伴随你的工作，保持图片的优化。 ImgBot 默认使用无损压缩。  安装 ImgBot 首先来到 GitHub Market，点击 Set up a free trial">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231411942.png">
+<meta property="article:published_time" content="2021-11-23T06:00:12.000Z">
+<meta property="article:modified_time" content="2021-11-23T06:40:43.000Z">
+<meta property="article:author" content="SEUGarfield">
+<meta property="article:tag" content="Github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231411942.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.zgzheng.top/posts/63060/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="jHeEqmxcY5gJhgQXHPVzNF9LSawljE99iQNENuIPBp4"/><meta name="baidu-site-verification" content="code-PCT1t1AN4f"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fd347c67a4aa89bb0cfbfa45cf3b7a98";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-2FF9T1FD5L"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2FF9T1FD5L');
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "9ds0zhvaq8");</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '利用ImgBot自动压缩Github图床，加速访问',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-23 14:40:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="笑枕晚风の小站" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202110251550056.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/steamgames/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231411942.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">笑枕晚风の小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/steamgames/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">利用ImgBot自动压缩Github图床，加速访问</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-23T06:00:12.000Z" title="发表于 2021-11-23 14:00:12">2021-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-23T06:40:43.000Z" title="更新于 2021-11-23 14:40:43">2021-11-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">824</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="利用ImgBot自动压缩Github图床，加速访问"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="简介">简介</h2>
+<blockquote>
+<p>ImgBot 是一个为你节省时间优化图片的机器人。优化图片意味着不牺牲图片质量和更小的文件大小。 安装后不久，你会收到一个优化图片的 pull request。合并这个 pull request 就行了！Imgbot 会伴随你的工作，保持图片的优化。 ImgBot 默认使用无损压缩。</p>
+</blockquote>
+<h2 id="安装-ImgBot">安装 ImgBot</h2>
+<p>首先来到 <a target="_blank" rel="noopener" href="https://github.com/marketplace/imgbot">GitHub Market</a>，点击 <code>Set up a free trial</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231415371.png" alt="image-20211123141515282"></p>
+<p>然后选择 <code>Open Source</code> (也就是免费的那个方案)，然后点击 <code>Install it for free</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231415680.png" alt="image-20211123141537606"></p>
+<p>检查一下订单，点击 <code>Complete order and begin installation</code></p>
+<p>确认一下 ImgBot 可以访问的仓库 (默认 All)，以及授予给 ImgBot 的权限，点击 <code>Install</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231413825.png" alt=""></p>
+<p>看到这个页面就说明 ImgBot 服务已经成功的安装到你的 GitHub 账户上了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231432236.png" alt="image-20211123143257161"></p>
+<h2 id="使用-ImgBot-压缩图片">使用 ImgBot 压缩图片</h2>
+<p>将 ImgBot 服务安装到你的 GitHub 账户上后，ImgBot 就会自动递归寻找并压缩 Git 仓库中的图片文件 (如果图片比较多，这一步可能回花费几天的时间)，压缩好后会向你提一个像这样的 PR。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231416586.png" alt="image-20211123141243333"></p>
+<p>确保你选的仓库有图片，不然不会收到 PR。</p>
+<p><img src="https://img2018.cnblogs.com/i-beta/1365470/202002/1365470-20200203203534979-1011170824.png" alt=""></p>
+<p>你可以点开 <code>Datails</code> 查看压缩前后大小、压缩率等细节，确认无误后，点击 <code>Merge pull request</code> 开始合并</p>
+<p>再输入 commit 信息，点击 <code>Confirm merge</code></p>
+<h2 id="设置-ImgBot">设置 ImgBot</h2>
+<p>ImgBot 默认是无损压缩的，可以按需进行<a target="_blank" rel="noopener" href="https://imgbot.net/docs/#configuration">配置</a>为有损压缩，对文件大小进一步压榨。配置方法是在根目录下添加 <code>.imgbotconfig</code> 文件</p>
+<p>目前有三个配置项：</p>
+<ul>
+<li>
+<p>提交 PR 的频率：<code>&quot;schedule&quot;</code></p>
+<ul>
+<li>选项：<code>daily</code> | <code>weekly</code> | <code>monthly</code></li>
+</ul>
+</li>
+<li>
+<p>排除的文件：<code>&quot;ignoredFiles&quot;</code></p>
+<ul>
+<li>选项：被排除文件的路径，支持通配符<code>*</code></li>
+</ul>
+</li>
+<li>
+<p>是否使用有损压缩方式 (压缩率更高)：<code>&quot;aggressiveCompression&quot;</code></p>
+<ul>
+<li>选项：<code>true</code> | <code>false</code></li>
+</ul>
+</li>
+</ul>
+<p>以下是较为完整的例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;schedule&quot;: &quot;daily&quot;, // daily|weekly|monthly</span><br><span class="line">    &quot;ignoredFiles&quot;: [</span><br><span class="line">        &quot;*.jpg&quot;,                   // ignore by extension</span><br><span class="line">        &quot;image1.png&quot;,              // ignore by filename</span><br><span class="line">        &quot;public/special_images/*&quot;, // ignore by folderpath</span><br><span class="line">    ],</span><br><span class="line">    &quot;aggressiveCompression&quot;: &quot;true&quot; // true|false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有更多配置项，完整说明请见<a target="_blank" rel="noopener" href="https://imgbot.net/docs/#configuration">官方文档</a>。</p>
+<h2 id="Github-Actions-自动合并-ImgBot-的-pr">Github Actions 自动合并 ImgBot 的 pr</h2>
+<p>上传图片后，很快 ImgBot 就会对图片进行压缩，并在 github 的仓库中发起一个 pull request。手动点击合并按钮对我来说实在是太麻烦了，能不能自动搞呢。有了 actions 没啥不能的，</p>
+<p>在 github actions 配置新增一个文件 .github/workflows/merge.yml。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Merge</span> <span class="string">Imgbot</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">types:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">opened</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ready_for_review</span></span><br><span class="line">  <span class="attr">pull_request_review:</span></span><br><span class="line">    <span class="attr">types:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">submitted</span></span><br><span class="line">  <span class="attr">status:</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">automerge:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">automerge</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">&quot;pascalgn/automerge-action@v0.6.1&quot;</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">&quot;$<span class="template-variable">&#123;&#123; secrets.GIT_MERGE_TOKEN &#125;&#125;</span>&quot;</span></span><br><span class="line">          <span class="attr">MERGE_LABELS:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">          <span class="attr">MERGE_METHOD:</span> <span class="string">&quot;squash&quot;</span></span><br><span class="line">          <span class="attr">MERGE_COMMIT_MESSAGE:</span> <span class="string">&quot;pull-request-description&quot;</span></span><br><span class="line">          <span class="attr">MERGE_FORKS:</span> <span class="string">&quot;false&quot;</span></span><br><span class="line">          <span class="attr">MERGE_RETRIES:</span> <span class="string">&quot;2&quot;</span></span><br><span class="line">          <span class="attr">MERGE_RETRY_SLEEP:</span> <span class="string">&quot;10000&quot;</span></span><br><span class="line">          <span class="attr">UPDATE_METHOD:</span> <span class="string">&quot;rebase&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这个 actions 配置中用到了 pascalgn/automerge-action，简化了对于 pull request 的操作。</p>
+<p>这里用到了 secrets 保存 github access token，和配置 PicGo 用到的 token 一样，没用过的话可在<strong>账号的</strong> Setting–&gt;Developersettings–&gt;Personal access tokens 生成（注意不是项目的 Settings）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231435137.png" alt="image-20211123142702270"></p>
+<p>将这个 token 填到<strong>项目的</strong> Settings–&gt;Secrets，名称为 GIT_MERGE_TOKEN。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231431549.png" alt="image-20211123142557882"></p>
+<h2 id="参考">参考</h2>
+<ol>
+<li>
+<p><a target="_blank" rel="noopener" href="https://mogeko.me/2019/066/">mogeko.me - 使用 ImgBot 无损压缩博客中的图片</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.berlinchan.com/2019/08/imgBot-optimize-image-asset-for-github-project">陈柏林的 Blog - 使用 ImgBot 自动为 Github 项目优化图片</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://blog.befovy.com/2019/11/gitee-image-bed/">半岛铁酱 - 我的 gitee 图床，自动上传、压缩、获取图片 url</a></p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SEUGarfield</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.zgzheng.top/posts/63060/">https://blog.zgzheng.top/posts/63060/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.zgzheng.top" target="_blank">笑枕晚风の小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Github/">Github</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111231411942.png" data-sites="facebook,twitter,wechat,weibo,qq,qzone,douban"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/25490/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111240937515.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">动态规划 | 树形DP</div></div></a></div><div class="next-post pull-right"><a href="/posts/29376/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111220122906.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">动态规划 | 区间DP</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202110251550056.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">SEUGarfield</div><div class="author-info__description">欢迎乘坐猫巴士</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zgzhengSEU"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zgzhengSEU" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:DedSec@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新建站，持续更新中<div class="twopeople"><div class="container" style="height:200px;"><canvas class="illo" width="800" height="800" style="max-width:200px; max-height:200px; touch-action:none;width:640px;height:640px;"></canvas></div><script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script><script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script><script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script><style>.twopeople{margin:0;align-items:center;justify-content:center;text-align:center;}canvas {display:block;margin:0 auto;cursor:move;}</style></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-ImgBot"><span class="toc-text">安装 ImgBot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-ImgBot-%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87"><span class="toc-text">使用 ImgBot 压缩图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-ImgBot"><span class="toc-text">设置 ImgBot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Actions-%E8%87%AA%E5%8A%A8%E5%90%88%E5%B9%B6-ImgBot-%E7%9A%84-pr"><span class="toc-text">Github Actions 自动合并 ImgBot 的 pr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/17081/" title="基本算法 | 倍增"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111041917080.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 倍增"/></a><div class="content"><a class="title" href="/posts/17081/" title="基本算法 | 倍增">基本算法 | 倍增</a><time datetime="2021-12-07T02:36:30.000Z" title="发表于 2021-12-07 10:36:30">2021-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/26653/" title="基本算法 | 排序"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111041917080.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 排序"/></a><div class="content"><a class="title" href="/posts/26653/" title="基本算法 | 排序">基本算法 | 排序</a><time datetime="2021-12-06T16:20:21.000Z" title="发表于 2021-12-07 00:20:21">2021-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/126/" title="基本算法 | 二分"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112062219818.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 二分"/></a><div class="content"><a class="title" href="/posts/126/" title="基本算法 | 二分">基本算法 | 二分</a><time datetime="2021-12-06T14:15:35.000Z" title="发表于 2021-12-06 22:15:35">2021-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/56182/" title="基本算法 | 前缀和与差分"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112050012506.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 前缀和与差分"/></a><div class="content"><a class="title" href="/posts/56182/" title="基本算法 | 前缀和与差分">基本算法 | 前缀和与差分</a><time datetime="2021-12-04T16:02:00.000Z" title="发表于 2021-12-05 00:02:00">2021-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/56265/" title="基本算法 | 递推与递归"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112042107341.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 递推与递归"/></a><div class="content"><a class="title" href="/posts/56265/" title="基本算法 | 递推与递归">基本算法 | 递推与递归</a><time datetime="2021-12-04T12:58:48.000Z" title="发表于 2021-12-04 20:58:48">2021-12-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By SEUGarfield</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline-api-one.vercel.app/',
+      avatar: 'monsterid',
+      avatarCDN: 'https://sdn.geekzu.org/avatar/',
+      path: location.pathname,
+      visitor: false,
+      dark: 'html[data-theme="dark"]'
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/f3334bcb.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: 'f3334bcb',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

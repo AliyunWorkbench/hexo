@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NFV 网络功能虚拟化 | 笑枕晚风の小站</title><meta name="keywords" content="NFV"><meta name="author" content="SEUGarfield"><meta name="copyright" content="SEUGarfield"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="什么是NFV？ 网络功能虚拟化（Network Functions Virtualization，NFV）是一种关于网络架构的概念。我们平时使用的x86服务器由硬件厂商生产，在安装了不同的操作系统以及软件后实现了各种各样的功能。而传统的网络设备并没有采用这种模式，路由器、交换机、防火墙、负载均衡等设备均有自己独立的硬件和软件系统。NFV借鉴了x86服务器的架构，它将路由器、交换机、防火墙、负载均衡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NFV 网络功能虚拟化">
+<meta property="og:url" content="https://blog.zgzheng.top/posts/46173/index.html">
+<meta property="og:site_name" content="笑枕晚风の小站">
+<meta property="og:description" content="什么是NFV？ 网络功能虚拟化（Network Functions Virtualization，NFV）是一种关于网络架构的概念。我们平时使用的x86服务器由硬件厂商生产，在安装了不同的操作系统以及软件后实现了各种各样的功能。而传统的网络设备并没有采用这种模式，路由器、交换机、防火墙、负载均衡等设备均有自己独立的硬件和软件系统。NFV借鉴了x86服务器的架构，它将路由器、交换机、防火墙、负载均衡">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241611163.png">
+<meta property="article:published_time" content="2021-11-24T08:09:54.000Z">
+<meta property="article:modified_time" content="2021-11-24T08:13:33.000Z">
+<meta property="article:author" content="SEUGarfield">
+<meta property="article:tag" content="NFV">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241611163.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.zgzheng.top/posts/46173/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="jHeEqmxcY5gJhgQXHPVzNF9LSawljE99iQNENuIPBp4"/><meta name="baidu-site-verification" content="code-PCT1t1AN4f"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fd347c67a4aa89bb0cfbfa45cf3b7a98";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-2FF9T1FD5L"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2FF9T1FD5L');
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "9ds0zhvaq8");</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'NFV 网络功能虚拟化',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-24 16:13:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="笑枕晚风の小站" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202110251550056.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/steamgames/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241611163.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">笑枕晚风の小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/steamgames/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">NFV 网络功能虚拟化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-24T08:09:54.000Z" title="发表于 2021-11-24 16:09:54">2021-11-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-24T08:13:33.000Z" title="更新于 2021-11-24 16:13:33">2021-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%99%BA%E8%83%BD%E9%80%9A%E4%BF%A1/">智能通信</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="NFV 网络功能虚拟化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="什么是NFV？">什么是NFV？</h2>
+<p>网络功能虚拟化（Network Functions Virtualization，NFV）是一种关于网络架构的概念。我们平时使用的x86服务器由硬件厂商生产，在安装了不同的操作系统以及软件后实现了各种各样的功能。而传统的网络设备并没有采用这种模式，路由器、交换机、防火墙、负载均衡等设备均有自己独立的硬件和软件系统。NFV借鉴了x86服务器的架构，它将路由器、交换机、防火墙、负载均衡这些不同的网络功能封装成独立的模块化软件，通过在硬件设备上运行不同的模块化软件，在单一硬件设备上实现多样化的网络功能。</p>
+<h2 id="NFV架构">NFV架构</h2>
+<p>NFV架构是欧洲电信标准协会（ETSI）提出的用于定义NFV实施标准的一种标准架构。NFV的理念是将标准化的网络功能应用于统一制式的硬件上。不同于传统物理设备中软件与硬件强绑定的关系，在NFV架构中，实现各种网络功能的标准化软件必须能够应用在同一台硬件设备上。这就要求NFV需要有一个统一的标准。NFV架构由基础网络功能虚拟化架构、虚拟网络功能功能、管理自动化及网络编排三个部分组成：</p>
+<ul>
+<li>
+<p>基础网络虚拟化架构（Network Functions Virtualization Infrastructure, NFVI）</p>
+<p>NFVI就好比各手机厂商推出的手机系统，它给硬件设备赋予基本的组件，支持网络应用所需要的软件或者容器管理平台。</p>
+</li>
+<li>
+<p>虚拟网络功能（Virtual Network Functions, VNF）</p>
+<p>VNF是实现网络功能（转发服务、IP配置等）的软件应用，就好比手机上的APP。在NFV架构中，各种VNF在NFVI的基础上实现。由于NFVI是标准化的架构，使得不同的VNF获得了通用性，不再依赖于原来的黑盒设备。</p>
+</li>
+<li>
+<p>管理自动化及网络编排（Management and orchestration, MANO）</p>
+<p>MANO是用于管理各VNF以及NFVI的统一框架，方便运维人员进行业务编排与设备管理。</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241612024.png" alt="NFV标准架构" title="NFV标准架构"><br>
+NFV标准架构</p>
+<p><strong>OSS/BSS</strong></p>
+<p>服务提供商的管理功能，不属于NFV框架内的功能组件，但MANO和网元需要提供对OSS/BSS 的接口支持。</p>
+<p><strong>VNF</strong></p>
+<p>Virtual Network Functions，指虚拟机及部署在虚拟机上的业务网元、网络功能软件等。</p>
+<p><strong>NFVI</strong></p>
+<p>NFV Infrastructure，NFV基础设施，包括所需的硬件及软件。为VNF提供运行环境。</p>
+<ul>
+<li>Hardware：硬件层，包括提供计算、网络、存储资源能力的硬件设备。</li>
+<li>Virtualization Layer：虚拟化层，主要完成对硬件资源的抽象，形成虚拟资源，如虚拟计算资源、虚拟存储资源、虚拟网络资源。NFV标准架构定义的主要功能模块。</li>
+</ul>
+<p><strong>MANO</strong></p>
+<p>Management and Orchestration，NFV的管理和编排。包括VIM，VNFM及NFVO，提供对VNF和NFVI资源的统一管理和编排功能。</p>
+<ul>
+<li>VIM：Virtualized Infrastructure Managers, NFVI管理模块，主要功能包括：资源的发现、虚拟资源的管理分配、故障处理等。</li>
+<li>VNFM：VNF Managers ，VNF管理模块，主要对VNF的生命周期（实例化、配置、关闭等）进行控制。</li>
+<li>NFVO：NFV Orchestrator，实现对整个NFV基础架构、软件资源、网络服务的编排和管理。</li>
+</ul>
+<h3 id="相比传统的物理网络设备，NFV有哪些好处呢？">相比传统的物理网络设备，NFV有哪些好处呢？</h3>
+<p>为了更好的理解NFV的特点，可以将NFV和传统的网络设备进行比较，具体见下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241612078.png" alt="NFV和传统物理网络设备有什么不同" title="NFV和传统物理网络设备有什么不同"><br>
+NFV和传统物理网络设备有什么不同</p>
+<h2 id="NFV的优势">NFV的优势</h2>
+<p>NFV适用于各种网络解决方案，目前使用较多的包括<a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/SD-WAN.html" title="SD-WAN">SD-WAN</a>、<a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/%E7%BD%91%E7%BB%9C%E5%88%87%E7%89%87.html" title="网络切片">网络切片</a>、移动边缘计算等。由于NFV将软件功能与硬件设备进行了解耦，随着标准化架构的完善，NFV带来了诸多优势：</p>
+<ul>
+<li>
+<p>灵活的业务（ Flexible services ）</p>
+<p>在服务器上运行不同的VNF，当网络需求变更时，根据需求变更和移动VNF即可，加快了网络功能交付和应用的速度。在测试新的网络功能时，无需建立专门的实验环境，只需请求新的虚拟机来处理该请求，当服务停用时释放该虚拟机即可，为网络功能测试提供了更便捷的方法。</p>
+</li>
+<li>
+<p>更低的成本（Less Spending）</p>
+<p>使用NFV后，网络通信实体将变为虚拟化的网络功能，这使得单一硬件服务器上可以同时运行多种网络功能，从而减少了物理设备的数量，实现了资源整合，降低了物理空间、功耗等带来的成本。但由于从传统设备切换为NFV在初期的投入较大，短期内的投资回报比并不比传统的物理网元具有足够的优势。</p>
+</li>
+<li>
+<p>更高的资源利用率（Greater Resource Efficiency）</p>
+<p>当网络需求发生变化时，无需更换硬件设备，避免了复杂的物理变更，通过软件重组快速更新基础网络架构，避免由业务变更带来的设备冗余和搬迁需求。</p>
+</li>
+<li>
+<p>避免供应商锁定（Avoid Vendor Lock-in）</p>
+<p>在统一制式的硬件上部署不同的网络功能，避免了某种功能被特定的供应商锁定，降低了网络设备维护带来的服务费用。</p>
+</li>
+</ul>
+<h2 id="NFV-vs-SDN">NFV vs. SDN</h2>
+<h3 id="什么是SDN">什么是SDN</h3>
+<p>随着大数据在公众业务流量中的使用增加，IT逐渐成为人们日常生活中的消费品，网络的灵活性与安全性变得格外重要。传统网络中，管理员通过命令行配置网络设备。这种方式效率低，无法满足快速演进的资源、服务和应用需求。</p>
+<p><a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/SDN.html" title="SDN">软件定义网络</a>（<a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/SDN.html" title="SDN">Software-defined Networking</a>，<a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/SDN.html" title="SDN">SDN</a>）技术是一种网络管理方法。SDN建立在将网络基础设施的控制面与转发面分离的基础上，将自动化和编程应用于控制面，使管理员具有动态调整全网流量的能力。通过将网络控制集中到SDN控制器上，使整个网络在逻辑上体现为单一的网络设备，通过可编程配置实现自动化配置、控制、保护和资源调整。</p>
+<h3 id="NFV和SDN有什么不同">NFV和SDN有什么不同</h3>
+<p>NFV也是一种网络架构，它将传统物理设备的网络功能封装成独立的模块化软件，通过在硬件设备上运行不同的模块化软件，在单一硬件设备上实现多样化的网络功能。</p>
+<p>SDN和NFV的相似之处主要体现在如下方面：</p>
+<ul>
+<li>都以实现网络虚拟化为目标，实现物理设备的资源池化。</li>
+<li>都提升了网络管理和业务编排效率。</li>
+<li>都希望通过界面操作或者编程语言来进行网络编排。</li>
+</ul>
+<p>SDN和NFV的不同之处参见下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241612362.png" alt="NFV与SDN有什么不同" title="NFV与SDN有什么不同"><br>
+NFV与SDN有什么不同</p>
+<p>SDN抽象物理网络资源（交换机、路由器等），并将决策转移到虚拟网络控制平面。控制平面决定将流量发送到哪里，而硬件继续引导和处理流量，无需依赖标准的硬件设备。NFV的目标是将所有物理网络资源进行虚拟化，允许网络在不添加更多设备的情况下增长，这依赖于标准的硬件设备。</p>
+<p>其实经典SDN架构也将硬件与软件解耦作为目标，但在实现过程中由于软件研发成本、设备替换等原因的影响，现行的SDN方案弱化了控制面的分离，仅以网络可编程和自动化运维为目标。</p>
+<p>华为NFV架构中，虚拟化层及VIM的功能由FusionSphere云操作系统实现，即华为FusionSphere可以实现计算资源、存储资源和网络资源的全面虚拟化，并能够对物理硬件虚拟化资源进行统一的管理、监控、优化。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241612037.png" alt="华为NFV架构" title="华为NFV架构"><br>
+华为NFV架构</p>
+<p><strong>Virtualization Layer</strong></p>
+<ul>
+<li>KVM：用于完成硬件资源的虚拟化。华为FusionSphere使用经过华为增强的KVM，着重改进了KVM的性能及可靠性。</li>
+<li>FusionStorage：FusionStorage是一种存储与计算高度融合的分布式存储软件，在通用X86服务器上部署该软件后，可以把所有服务器的本地硬盘组织成一个虚拟存储资源池，提供块存储功能。</li>
+<li>FusionNetwork：FusionNetwork提供传统虚拟交换向未来的软件定义网络演进方案，通过<a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/VXLAN.html" title="VXLAN">VxLAN</a>的二层隧道封装协议的支持，配合由华为SDN Controller完成SDN网络的自动化配置部署，SLA服务质量控制，多租户隔离和分层。</li>
+</ul>
+<p><strong>VIM</strong></p>
+<ul>
+<li>FusionSphere <a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/OpenStack.html" title="OpenStack">OpenStack</a>：FusionSphere OpenStack是华为基于OpenStack进行增强、加固后的企业版本。对外展现统一接口，对计算、存储、网络虚拟资源进行集中调度和管理，降低业务的运行成本，保证系统的安全性和可靠性。</li>
+<li>FusionSphere OpenStack OM：FusionSphere OpenStack的操作管理界面，主要对FusionSphere的软件和使用的硬件进行全面的监控和管理，实现自动化资源发放和自动化基础设施运维管理，并向内部运维管理人员提供管理界面。</li>
+</ul>
+<h2 id="参考资源">参考资源</h2>
+<p>1<a target="_blank" rel="noopener" href="https://carrier.huawei.com/cn/solutions/cloud-enabled-digital-operations/nfv-sdn-Integration">NFV集成与运维</a></p>
+<p>2<a target="_blank" rel="noopener" href="https://www.huawei.com/mediafiles/CBG/PDF/Files/hw_399662.pdf">华为NFV白皮书</a></p>
+<p>3<a target="_blank" rel="noopener" href="https://carrier.huawei.com/cn/technical-topics/core-network/NFV-prime-systemintegration">华为NFV首要集成服务</a></p>
+<p>4<a target="_blank" rel="noopener" href="https://carrier.huawei.com/cn/trends-and-insights/all-cloud-network-towards-5g/drilling-down-with-nfv">NFV驶入快车道： 核心网率先“漫步云端”</a></p>
+<p>5<a target="_blank" rel="noopener" href="https://carrier.huawei.com/cn/trends-and-insights/all-cloud-network-towards-5g/drilling-down-with-nfv">NFV构筑融合新网络</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SEUGarfield</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.zgzheng.top/posts/46173/">https://blog.zgzheng.top/posts/46173/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.zgzheng.top" target="_blank">笑枕晚风の小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NFV/">NFV</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241611163.png" data-sites="facebook,twitter,wechat,weibo,qq,qzone,douban"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/14690/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111242039716.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux GCC 使用入门</div></div></a></div><div class="next-post pull-right"><a href="/posts/10595/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111241537867.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SDN 软件定义网络</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202110251550056.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">SEUGarfield</div><div class="author-info__description">欢迎乘坐猫巴士</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zgzhengSEU"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zgzhengSEU" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:DedSec@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新建站，持续更新中<div class="twopeople"><div class="container" style="height:200px;"><canvas class="illo" width="800" height="800" style="max-width:200px; max-height:200px; touch-action:none;width:640px;height:640px;"></canvas></div><script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script><script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script><script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script><style>.twopeople{margin:0;align-items:center;justify-content:center;text-align:center;}canvas {display:block;margin:0 auto;cursor:move;}</style></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFNFV%EF%BC%9F"><span class="toc-text">什么是NFV？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NFV%E6%9E%B6%E6%9E%84"><span class="toc-text">NFV架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E6%AF%94%E4%BC%A0%E7%BB%9F%E7%9A%84%E7%89%A9%E7%90%86%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%EF%BC%8CNFV%E6%9C%89%E5%93%AA%E4%BA%9B%E5%A5%BD%E5%A4%84%E5%91%A2%EF%BC%9F"><span class="toc-text">相比传统的物理网络设备，NFV有哪些好处呢？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NFV%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">NFV的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NFV-vs-SDN"><span class="toc-text">NFV vs. SDN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFSDN"><span class="toc-text">什么是SDN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NFV%E5%92%8CSDN%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C"><span class="toc-text">NFV和SDN有什么不同</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90"><span class="toc-text">参考资源</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/17081/" title="基本算法 | 倍增"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111041917080.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 倍增"/></a><div class="content"><a class="title" href="/posts/17081/" title="基本算法 | 倍增">基本算法 | 倍增</a><time datetime="2021-12-07T02:36:30.000Z" title="发表于 2021-12-07 10:36:30">2021-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/26653/" title="基本算法 | 排序"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111041917080.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 排序"/></a><div class="content"><a class="title" href="/posts/26653/" title="基本算法 | 排序">基本算法 | 排序</a><time datetime="2021-12-06T16:20:21.000Z" title="发表于 2021-12-07 00:20:21">2021-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/126/" title="基本算法 | 二分"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112062219818.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 二分"/></a><div class="content"><a class="title" href="/posts/126/" title="基本算法 | 二分">基本算法 | 二分</a><time datetime="2021-12-06T14:15:35.000Z" title="发表于 2021-12-06 22:15:35">2021-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/56182/" title="基本算法 | 前缀和与差分"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112050012506.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 前缀和与差分"/></a><div class="content"><a class="title" href="/posts/56182/" title="基本算法 | 前缀和与差分">基本算法 | 前缀和与差分</a><time datetime="2021-12-04T16:02:00.000Z" title="发表于 2021-12-05 00:02:00">2021-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/56265/" title="基本算法 | 递推与递归"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112042107341.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 递推与递归"/></a><div class="content"><a class="title" href="/posts/56265/" title="基本算法 | 递推与递归">基本算法 | 递推与递归</a><time datetime="2021-12-04T12:58:48.000Z" title="发表于 2021-12-04 20:58:48">2021-12-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By SEUGarfield</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline-api-one.vercel.app/',
+      avatar: 'monsterid',
+      avatarCDN: 'https://sdn.geekzu.org/avatar/',
+      path: location.pathname,
+      visitor: false,
+      dark: 'html[data-theme="dark"]'
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/f3334bcb.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: 'f3334bcb',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,19 @@
+
+name: SEO Auto Push
+on:
+  schedule:
+    - cron: 0 4 * * *
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: 1. 检擦url文件
+        uses: actions/checkout@master
+      - name: 2. 自动提交
+        run: |
+          curl -H 'Content-Type:text/plain' --data-binary @baidu.txt 'http://data.zz.baidu.com/urls?site=https://blog.zgzheng.top&token=${{secrets.baidu_token}}'
+          curl -X POST 'https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlBatch?apikey=${{secrets.bing_apikey}}' -H 'Content-Type: application/json' -H 'charset: utf-8' -d @bing.json
+  

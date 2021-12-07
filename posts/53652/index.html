@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hexo自动提交URL到百度、必应、谷歌 | 笑枕晚风の小站</title><meta name="keywords" content="Hexo,博客"><meta name="author" content="SEUGarfield"><meta name="copyright" content="SEUGarfield"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="来源@Lete大佬教程，并对自己配置时遇到的问题进行更新   介绍 由于 Bing 和 Google 只爬 sitemap.xml 收录已经很快了，但总是爬 sitemap.xml 效率肯定没 Api 提交的快。 自己写了 Bing 的定时自动提交，目前还不支持 Google 定时自动提交，因为 Google 的 API 提交方式很鸡肋  Google indexing API 有两个问题  账">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo自动提交URL到百度、必应、谷歌">
+<meta property="og:url" content="https://blog.zgzheng.top/posts/53652/index.html">
+<meta property="og:site_name" content="笑枕晚风の小站">
+<meta property="og:description" content="来源@Lete大佬教程，并对自己配置时遇到的问题进行更新   介绍 由于 Bing 和 Google 只爬 sitemap.xml 收录已经很快了，但总是爬 sitemap.xml 效率肯定没 Api 提交的快。 自己写了 Bing 的定时自动提交，目前还不支持 Google 定时自动提交，因为 Google 的 API 提交方式很鸡肋  Google indexing API 有两个问题  账">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191830693.jpeg">
+<meta property="article:published_time" content="2021-11-19T15:01:38.502Z">
+<meta property="article:modified_time" content="2021-11-19T10:42:55.000Z">
+<meta property="article:author" content="SEUGarfield">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191830693.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.zgzheng.top/posts/53652/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="jHeEqmxcY5gJhgQXHPVzNF9LSawljE99iQNENuIPBp4"/><meta name="baidu-site-verification" content="code-PCT1t1AN4f"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fd347c67a4aa89bb0cfbfa45cf3b7a98";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-2FF9T1FD5L"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2FF9T1FD5L');
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "9ds0zhvaq8");</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo自动提交URL到百度、必应、谷歌',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-19 18:42:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="笑枕晚风の小站" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202110251550056.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/steamgames/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191830693.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">笑枕晚风の小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/steamgames/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hexo自动提交URL到百度、必应、谷歌</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-19T15:01:38.502Z" title="发表于 2021-11-19 23:01:38">2021-11-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-19T10:42:55.000Z" title="更新于 2021-11-19 18:42:55">2021-11-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hexo自动提交URL到百度、必应、谷歌"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>来源<a target="_blank" rel="noopener" href="https://blog.imlete.cn/article/hexo-seo-autopush.html#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6">@Lete</a>大佬教程，并对自己配置时遇到的问题进行更新</p>
+</blockquote>
+<hr>
+<h3 id="介绍">介绍</h3>
+<p>由于 Bing 和 Google 只爬 sitemap.xml 收录已经很快了，但总是爬 sitemap.xml 效率肯定没 Api 提交的快。<br>
+自己写了 Bing 的定时自动提交，目前还不支持 Google 定时自动提交，因为 Google 的 API 提交方式很鸡肋</p>
+<blockquote>
+<p>Google indexing API 有两个问题</p>
+<ol>
+<li>账户安全密钥不能被泄露 (谷歌只支持这种提交方式，对于没有后台的 hexo 来说是很致命的)</li>
+<li>API 提交只能使用 json，而这个 json 格式只能包含一个网站 url 链接<br>
+不能多 url 放到一个 json 里，所以需要多次请求提交 (baidu、bing、只需一次请求)</li>
+</ol>
+</blockquote>
+<p>Google 最优提交方案是本地提交 (能解决以上两个问题)</p>
+<h3 id="安装插件">安装插件</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-seo-autopush --save</span><br></pre></td></tr></table></figure>
+<h3 id="配置">配置</h3>
+<p>在 hexo 的 config.yml 里添加</p>
+<p>hexo-seo-autopush 配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># enable: 开启/关闭 推送</span><br><span class="line"># count: 每次提交最新的10篇文章</span><br><span class="line"># https://github.com/lete114/hexo-seo-autopush</span><br><span class="line">hexo_seo_autopush:</span><br><span class="line">  baidu:</span><br><span class="line">    enable: true</span><br><span class="line">    count: 100</span><br><span class="line">  bing:</span><br><span class="line">    enable: true</span><br><span class="line">    count: 10</span><br><span class="line">  google:</span><br><span class="line">    enable: true</span><br><span class="line">    count: 10</span><br><span class="line">    google_file: google_service_account.json # 谷歌服务账户</span><br></pre></td></tr></table></figure>
+<p>添加<code>Google Push</code>配置和解决 push 后没有 GitHub Actions <code>.github\workflows\AutoPush.yml</code>文件的问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">   - type: git</span><br><span class="line">     repo: https://github.com/lete114/Test.git</span><br><span class="line">     branch: main</span><br><span class="line">     ignore_hidden: false  # 忽略隐藏文件及文件夹(目录)</span><br><span class="line">   - type: GooglePush # 谷歌提交</span><br></pre></td></tr></table></figure>
+<h3 id="获取站长平台密钥">获取站长平台密钥</h3>
+<h4 id="Baidu-Key">Baidu Key</h4>
+<ol>
+<li>打开百度站长平台，点击左侧的普通收录 <a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/">https://ziyuan.baidu.com/</a><br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191825646.png" alt=""></li>
+</ol>
+<h4 id="Bing-Key">Bing Key</h4>
+<ol>
+<li>打开 Bing 站长平台，<a target="_blank" rel="noopener" href="https://www.bing.com/webmasters/home">https://www.bing.com/webmasters/home</a></li>
+<li>点击右上角头像 旁边的齿轮，跟着下图操作<br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191825471.png" alt=""></li>
+</ol>
+<h4 id="Google-Key">Google Key</h4>
+<ol>
+<li>打开 Google indexing API <a target="_blank" rel="noopener" href="https://console.developers.google.com/flows/enableapi?apiid=indexing.googleapis.com&amp;credential=client_key">官网</a></li>
+<li>选择创建项目，点击继续</li>
+<li>点击转到凭据页面</li>
+<li>跟着如下图片步骤  （可能稍有区别，大体差不多，只要最后导出json文件即可）<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/197a7dddea6bf949dd169e79a955b7fe.png" alt=""><br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191825520.png" alt=""><br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191825483.png" alt=""><br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191825545.png" alt=""><br>
+json 文件内的内容</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;type&quot;: &quot;service_account&quot;,</span><br><span class="line">  &quot;project_id&quot;: &quot;elated-guild-298003&quot;,</span><br><span class="line">  &quot;private_key_id&quot;: &quot;cf58d669c0e8c8e082b2c403ade5e2548078e384&quot;,</span><br><span class="line">  &quot;private_key&quot;: &quot;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDEAJw89yeylRrA\nB+bzOAfQQNgOCABIwEKCy5mMxWSaiXy2RktyCJWjMR2Pgz770NJgClQHPJjsFn0c\nukHufpnuiX3VPlimLANPCRFdU/qp+yiaw4quIhYF1UZJkhmhL30anghUcvi+r9hQ\nw+RwcKrgA4EUzqUJaPdvjtzSoo315PPGfR91ASD5S8gE02yVI8igtYMX7v2x1JYR\n7PwHJwOVemiM9lot8ilvoUbV4BU0vSlwFoxKMJAbEXTmJjEKQi9992rcMW0GzXO8\ncHldUUtURXkt3VFjYTH27KhHiTkTXw+uZRBu1rkubDJkS8lGIWN7Fc/r4HMMCVTu\nXPS6HbJ/AgMBAAECggEANSS7OBaFd3jRL3cVCiZLjA5A5pEJzq/+eKtOn2oYDISx\nwVRO+YTVWdGj47kg1zM4D11NikbGaeDxHFxuKwW9o/04lpyYebneTcw2Hpl6EiOs\nz0WssOlCEmPQ8nrAI0GWiKSHuqoPwtg37TIoGsqZsjKRCby759DDokZYnm3/0sc+\niEllT0ZyBZhGDzyguVLEdCIR2P02q/hQzLyd6ejWGGwZebImbGoILhmuOjVrco0p\nV0JbrrNskjM5Epe7w+CpGftEASJ7Dxa8oj0qIT6cyAipra2AZAGnG9jrLcWpJuhu\nvNeDIFnTfpNEac+khXZZE2++MIQfTX9wGJc8tox2vQKBgQD6yiNvAL7sxExiy6ER\ntLtFQ3bvmMpKRFGvFOyPOtMbmjZ3D1GEtNNKGH4v1TI+tncEy7Q5Dm7nWwpi8yvL\nbh8xKghelAc/CU1nw0xDEDCkMbAwpFg5A5ZDImy3LZsQh0kNXniIMy1vMSt5yLKS\n80gXQKGCxG8t3rP8Qd/2a55g1QKBgQDIExP1nG9sHJaigmitEUwr0Ow6Shqr56Me\nd7995gaV1oLWWCQzrXt/viWkb1W5ZGIxzcWNWz99m4CbvqfewRr598Eenald0csN\nVcIEk+0C+6KqA+jU9Tfs2zow/C7JuKULP2N++o0EoSz/ngokP7f1yLOYbr507v/R\n0cLElQBQAwKBgAbxDWYHKUG4dTzO0hiBXiWepm4fVooTtgcYlyunvywmapeFDwaT\nUr3cS7HbPtbJiiXR1Z02rw8sT+9JN88brzVXKoAjrMer5D6ZA0Vf71i8H1pZUi/R\nz5jwHP48/uvIMtdx4/gxInLPc5qdWYQDw90Q5ueNtF4aqfSzhhV2CR45AoGBAJN9\nPOF6iMjx6jmyWOf8MGK8iOgPaMoA4Ea9j/SHdaNPlvPb1hQid0AcNDObv14Dmj+M\nqW0jLxKxZ4VobufPAsvyz/J51zjKRx11cqldQwNH7QnYB/O1MZzxn1wtC3C5JTG9\ncONSYFJhXoKxRliigEI3ye089jnNVdifAS1ZiflxAoGBANTX1fEMEeNuYU0v3rtd\n5CkPZg4TNZ+y2MGl5xR1LdIgrJ8c9xKoW4rpp7SsOIvHpWX494f90D7o9uFEGSQ4\nyQK53jVzJ0ekGV5BdPF3n3/2j2VEqFLHi7LL4CJSxr6ci7OfBoHOGE8odhevQCCK\njnFzEin0QsBEgIC73fBh6XcH\n-----END PRIVATE KEY-----\n&quot;,</span><br><span class="line">  &quot;client_email&quot;: &quot;googleindexing@elated-guild-298003.iam.gserviceaccount.com&quot;,</span><br><span class="line">  &quot;client_id&quot;: &quot;103034240916368863393&quot;,</span><br><span class="line">  &quot;auth_uri&quot;: &quot;https://accounts.google.com/o/oauth2/auth&quot;,</span><br><span class="line">  &quot;token_uri&quot;: &quot;https://oauth2.googleapis.com/token&quot;,</span><br><span class="line">  &quot;auth_provider_x509_cert_url&quot;: &quot;https://www.googleapis.com/oauth2/v1/certs&quot;,</span><br><span class="line">  &quot;client_x509_cert_url&quot;: &quot;https://www.googleapis.com/robot/v1/metadata/x509/googleindexing%40elated-guild-298003.iam.gserviceaccount.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>打开<a target="_blank" rel="noopener" href="https://search.google.com/search-console">谷歌站长平台</a><br>
+<img src="https://img-blog.csdnimg.cn/img_convert/16839a5aaa37ff27b31f80e3a6157589.png" alt=""><br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191825943.png" alt=""></li>
+</ol>
+<h3 id="配置博客仓库">配置博客仓库</h3>
+<ol>
+<li>Name 必须是<code>baidu_token</code>和<code>bing_apikey</code>(不区分大小写)<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/9e40ce7b7a0548ebd5261791819b2577.png" alt=""></li>
+<li>添加完成后<br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191825840.png" alt=""></li>
+</ol>
+<h3 id="谷歌的一些问题">谷歌的一些问题</h3>
+<p>触发谷歌提交的命令是<code>hexo d</code></p>
+<p>由于谷歌需要配合 Google indexing API 平台提供的 json 进行提交，而这个 json 格式不能泄露<br>
+为防止 json 泄露只能本地提交，将 json 放到 hexo 根目录可自定义重命名 (必须对应插件的配置)<br>
+<code>如果你的使用Github Actions自动部署的话请把仓库设置为私有</code><br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191825077.png" alt=""></p>
+<h3 id="提交成功返回状态码">提交成功返回状态码</h3>
+<p>以上步骤完成后即可<code>hexo d</code>部署了</p>
+<ol>
+<li>看看 Github 仓库是否上传成功<br>
+[外链图片转存失败, 源站可能有防盗链机制, 建议将图片保存下来直接上传 (img-JKpARc5E-1612254394443)(<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/lete114/lete114.github.io/img/Hexo-seo-autopush/code.png">https://cdn.jsdelivr.net/gh/lete114/lete114.github.io/img/Hexo-seo-autopush/code.png</a>)]</li>
+<li>点击<code>Actions</code>查看是否执行<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/0f6d3e75d5e6e6f214239c1f61427ab1.png" alt=""></li>
+<li>点击<code>Auto Push</code>----&gt;<code>build</code>-----&gt; 点击第 2 步<code>自动提交</code><br>
+如图 43 行<br>
+<img src="https://img-blog.csdnimg.cn/img_convert/4032f0507df60723dc43b14536d0aae7.png" alt=""></li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// baidu返回的结果</span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;remain&quot;</span>: <span class="number">2060</span>,  // 表示当天剩余的可推送url条数</span><br><span class="line">	<span class="string">&quot;success&quot;</span>: <span class="number">47</span>    // 成功推送的url条数</span><br><span class="line">&#125; </span><br><span class="line">// bing返回结果(错误)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;ErrorCode&quot;</span>: <span class="number">2</span>,  // 错误 </span><br><span class="line">	<span class="string">&quot;Message&quot;</span>: <span class="string">&quot;ERROR!!! Quota remaining for today: 2, Submitted: 47&quot;</span></span><br><span class="line">    // Message：表示 你目前只剩<span class="number">2</span>个url推送，而你现在推送的是<span class="number">47</span>条url</span><br><span class="line">    // bing新用户开始每日只有<span class="number">10</span>个推送额，据我了解连续推送<span class="number">10</span>天(这我也不确定)</span><br><span class="line">    // 如果出现这个错误的话，你就只能先手动添加等系统给你分配额了(分配<span class="number">9999</span>)</span><br><span class="line">&#125;</span><br><span class="line">// bing返回结果(成功)</span><br><span class="line">&#123;<span class="string">&quot;d&quot;</span>:null&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>Google 返回状态码<br>
+<strong>成功返回</strong></li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Google response:  &#123;</span><br><span class="line">  urlNotificationMetadata: &#123;</span><br><span class="line">    url: <span class="string">&#x27;https://blog.lete114.top/article/hexo-seo-autopush.html&#x27;</span>,</span><br><span class="line">    latestUpdate: &#123;</span><br><span class="line">      url: <span class="string">&#x27;https://blog.lete114.top/article/hexo-seo-autopush.html&#x27;</span>,</span><br><span class="line">      <span class="built_in">type</span>: <span class="string">&#x27;URL_UPDATED&#x27;</span>,</span><br><span class="line">      notifyTime: <span class="string">&#x27;2020-12-08T02:31:32.871417693Z&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>出现权限错误</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploy done: git</span><br><span class="line">INFO  Deploying: GooglePush</span><br><span class="line">INFO  Deploy done: GooglePush</span><br><span class="line">Google response:  &#123;</span><br><span class="line">  error: &#123;</span><br><span class="line">    code: <span class="number">403</span>,</span><br><span class="line">    message: <span class="string">&#x27;Permission denied. Failed to verify the URL ownership.&#x27;</span>,</span><br><span class="line">    status: <span class="string">&#x27;PERMISSION_DENIED&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Google response:  &#123;</span><br><span class="line">  error: &#123;</span><br><span class="line">    code: <span class="number">403</span>,</span><br><span class="line">    message: <span class="string">&#x27;Permission denied. Failed to verify the URL ownership.&#x27;</span>,</span><br><span class="line">    status: <span class="string">&#x27;PERMISSION_DENIED&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>打开管理资源所有者<br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191840223.png" alt="image-20211119184016178"></p>
+</li>
+<li>
+<p>进入需要添加验证权限的网站<br>
+<img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191837191.png" alt="image-20211119183711136"></p>
+</li>
+<li>
+<p>点击添加拥有者，添加账号即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191838477.png" alt="image-20211119183858416"></p>
+</li>
+</ul>
+<p><strong>出现此错误需要<code>翻墙</code></strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">FetchError: request to https://www.googleapis.com/oauth2/v4/token failed, reason: connect ETIMEDOUT <span class="number">172.217</span>.<span class="number">27.138</span>:<span class="number">443</span></span><br><span class="line">    at ClientRequest.&lt;anonymous&gt; (D:\Lete\GitHub\Hexo<span class="literal">-Butterfly</span>\node_modules\node<span class="literal">-fetch</span>\lib\index.js:<span class="number">1461</span>:<span class="number">11</span>)</span><br><span class="line">    at ClientRequest.emit (events.js:<span class="number">321</span>:<span class="number">20</span>)</span><br><span class="line">    at TLSSocket.socketErrorListener (_http_client.js:<span class="number">426</span>:<span class="number">9</span>)</span><br><span class="line">    at TLSSocket.emit (events.js:<span class="number">321</span>:<span class="number">20</span>)</span><br><span class="line">    at emitErrorNT (internal/streams/destroy.js:<span class="number">92</span>:<span class="number">8</span>)</span><br><span class="line">    at emitErrorAndCloseNT (internal/streams/destroy.js:<span class="number">60</span>:<span class="number">3</span>)</span><br><span class="line">    at processTicksAndRejections (internal/<span class="keyword">process</span>/task_queues.js:<span class="number">84</span>:<span class="number">21</span>) &#123;</span><br><span class="line">  message: <span class="string">&#x27;request to https://www.googleapis.com/oauth2/v4/token failed, reason: connect ETIMEDOUT 172.217.27.138:443&#x27;</span>,</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;system&#x27;</span>,</span><br><span class="line">  errno: <span class="string">&#x27;ETIMEDOUT&#x27;</span>,</span><br><span class="line">  code: <span class="string">&#x27;ETIMEDOUT&#x27;</span>,</span><br><span class="line">  config: &#123;</span><br><span class="line">    method: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    url: <span class="string">&#x27;https://www.googleapis.com/oauth2/v4/token&#x27;</span>,</span><br><span class="line">    <span class="keyword">data</span>: &#123;</span><br><span class="line">      grant_type: <span class="string">&#x27;urn:ietf:params:oauth:grant-type:jwt-bearer&#x27;</span>,</span><br><span class="line">      assertion: <span class="string">&#x27;eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb29nbGVpbmRleGluZ0BzdGF0ZWx5LXRyYW5zaXQtMjk3NzE1LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic2NvcGUiOiJodHRwczovL3d3d</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果出现错误</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">err: Error: Cannot find module <span class="string">&#x27;request&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">err: Error: Cannot find module <span class="string">&#x27;googleapis&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>请执行</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install request googleapis</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SEUGarfield</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.zgzheng.top/posts/53652/">https://blog.zgzheng.top/posts/53652/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.zgzheng.top" target="_blank">笑枕晚风の小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a><a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111191830693.jpeg" data-sites="facebook,twitter,wechat,weibo,qq,qzone,douban"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/29376/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111220122906.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">动态规划 | 区间DP</div></div></a></div><div class="next-post pull-right"><a href="/posts/36289/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111192059961.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">动态规划 | 状态压缩DP</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/41456/" title="Hexo博客 | Hexo插入视频"><img class="cover" src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111041947121.gif" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-26</div><div class="title">Hexo博客 | Hexo插入视频</div></div></a></div><div><a href="/posts/46000/" title="Hexo博客 | 页面插入并展示PDF文档"><img class="cover" src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111042051134.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-26</div><div class="title">Hexo博客 | 页面插入并展示PDF文档</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202110251550056.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">SEUGarfield</div><div class="author-info__description">欢迎乘坐猫巴士</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zgzhengSEU"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zgzhengSEU" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:DedSec@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">新建站，持续更新中<div class="twopeople"><div class="container" style="height:200px;"><canvas class="illo" width="800" height="800" style="max-width:200px; max-height:200px; touch-action:none;width:640px;height:640px;"></canvas></div><script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script><script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script><script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script><style>.twopeople{margin:0;align-items:center;justify-content:center;text-align:center;}canvas {display:block;margin:0 auto;cursor:move;}</style></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%AB%99%E9%95%BF%E5%B9%B3%E5%8F%B0%E5%AF%86%E9%92%A5"><span class="toc-text">获取站长平台密钥</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Baidu-Key"><span class="toc-text">Baidu Key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bing-Key"><span class="toc-text">Bing Key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Google-Key"><span class="toc-text">Google Key</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E4%BB%93%E5%BA%93"><span class="toc-text">配置博客仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%B7%E6%AD%8C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-text">谷歌的一些问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%88%90%E5%8A%9F%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-text">提交成功返回状态码</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/17081/" title="基本算法 | 倍增"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111041917080.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 倍增"/></a><div class="content"><a class="title" href="/posts/17081/" title="基本算法 | 倍增">基本算法 | 倍增</a><time datetime="2021-12-07T02:36:30.000Z" title="发表于 2021-12-07 10:36:30">2021-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/26653/" title="基本算法 | 排序"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202111041917080.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 排序"/></a><div class="content"><a class="title" href="/posts/26653/" title="基本算法 | 排序">基本算法 | 排序</a><time datetime="2021-12-06T16:20:21.000Z" title="发表于 2021-12-07 00:20:21">2021-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/126/" title="基本算法 | 二分"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112062219818.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 二分"/></a><div class="content"><a class="title" href="/posts/126/" title="基本算法 | 二分">基本算法 | 二分</a><time datetime="2021-12-06T14:15:35.000Z" title="发表于 2021-12-06 22:15:35">2021-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/56182/" title="基本算法 | 前缀和与差分"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112050012506.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 前缀和与差分"/></a><div class="content"><a class="title" href="/posts/56182/" title="基本算法 | 前缀和与差分">基本算法 | 前缀和与差分</a><time datetime="2021-12-04T16:02:00.000Z" title="发表于 2021-12-05 00:02:00">2021-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/56265/" title="基本算法 | 递推与递归"><img src="https://cdn.jsdelivr.net/gh/zgzhengSEU/imagebed/Image/202112042107341.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基本算法 | 递推与递归"/></a><div class="content"><a class="title" href="/posts/56265/" title="基本算法 | 递推与递归">基本算法 | 递推与递归</a><time datetime="2021-12-04T12:58:48.000Z" title="发表于 2021-12-04 20:58:48">2021-12-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By SEUGarfield</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline-api-one.vercel.app/',
+      avatar: 'monsterid',
+      avatarCDN: 'https://sdn.geekzu.org/avatar/',
+      path: location.pathname,
+      visitor: false,
+      dark: 'html[data-theme="dark"]'
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/f3334bcb.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: 'f3334bcb',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
