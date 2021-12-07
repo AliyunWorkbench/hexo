@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.zgzheng.top/posts/25013/</loc>
+    
+    <lastmod>2021-12-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.zgzheng.top/posts/26653/</loc>
     
     <lastmod>2021-12-07</lastmod>
@@ -873,6 +880,13 @@
   
   <url>
     <loc>https://blog.zgzheng.top/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2021-12-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zgzheng.top/tags/%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%83%E4%B9%A0/</loc>
     <lastmod>2021-12-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
