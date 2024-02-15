@@ -1,0 +1,168 @@
+// fold
+.fold
+  margin 1rem 0
+  border 0.5px solid var(--fold-border-color)
+  position relative
+  clear both
+  border-radius 0.125rem
+
+  .fold-title
+    color var(--fold-title-color)
+    padding 0.5rem 0.75rem
+    font-size 0.9rem
+    font-weight bold
+    border-radius 0.125rem
+
+    &:not(.collapsed) > .fold-arrow
+      transform rotate(90deg)
+      transform-origin center center
+
+    .fold-arrow
+      display inline-block
+      margin-right 0.35rem
+      transition transform .3s ease-out
+
+  .fold-content
+    padding 1rem 1rem
+
+    & > *:last-child
+      margin-bottom 0
+
+.fold-default, .fold-secondary
+  background-color rgba(#bbbbbb, 0.25)
+
+.fold-primary
+  background-color rgba(#b7a0e0, 0.25)
+
+.fold-info
+  background-color rgba(#a0c5e4, 0.25)
+
+.fold-success
+  background-color rgba(#aedcae, 0.25)
+
+.fold-warning
+  background-color rgba(#f8d6a6, 0.25)
+
+.fold-danger
+  background-color rgba(#eca9a7, 0.25)
+
+.fold-light
+  background-color rgba(#fefefe, 0.25)
+
+// note
+.note
+  padding 0.75rem
+  border-left 0.35rem solid
+  border-radius 0.25rem
+  margin 1.5rem 0
+  color var(--text-color)
+  transition color .2s ease-in-out
+  font-size 0.9rem
+
+  a
+    color var(--text-color)
+    transition color .2s ease-in-out
+
+  *:last-child
+    margin-bottom 0
+
+.note-default, .note-secondary
+  background-color rgba(#bbbbbb, 0.25)
+  border-color #777
+
+.note-primary
+  background-color rgba(#b7a0e0, 0.25)
+  border-color #6f42c1
+
+.note-success
+  background-color rgba(#aedcae, 0.25)
+  border-color #5cb85c
+
+.note-danger
+  background-color rgba(#eca9a7, 0.25)
+  border-color #d9534f
+
+.note-warning
+  background-color rgba(#f8d6a6, 0.25)
+  border-color #f0ad4e
+
+.note-info
+  background-color rgba(#a0c5e4, 0.25)
+  border-color #428bca
+
+.note-light
+  background-color rgba(#fefefe, 0.25)
+  border-color #0f0f0f
+
+// label
+.label
+  display inline
+  border-radius 3px
+  font-size 85%
+  margin 0
+  padding .2em .4em
+  color var(--text-color)
+  transition color .2s ease-in-out
+
+.label-default, .label-secondary
+  background-color rgba(#bbbbbb, 0.25)
+
+.label-primary
+  background-color rgba(#b7a0e0, 0.25)
+
+.label-info
+  background-color rgba(#a0c5e4, 0.25)
+
+.label-success
+  background-color rgba(#aedcae, 0.25)
+
+.label-warning
+  background-color rgba(#f8d6a6, 0.25)
+
+.label-danger
+  background-color rgba(#eca9a7, 0.25)
+
+// button
+.markdown-body .btn
+  border 1px solid var(--line-color)
+  background-color var(--button-bg-color)
+  color var(--text-color)
+  transition color .2s ease-in-out, background .2s ease-in-out, border-color .2s ease-in-out
+  border-radius .25rem
+  display inline-block
+  font-size .875em
+  line-height 2
+  padding 0 .75rem
+  margin-bottom 1rem
+
+  &:hover
+    background-color var(--button-hover-bg-color)
+    text-decoration none
+
+// group-image
+.group-image-container
+  margin 1.5rem auto
+
+  & img
+    margin 0 auto
+    border-radius 3px
+    background-color transparent
+    box-shadow 0 3px 9px 0 rgba(0, 0, 0, 0.15), 0 3px 9px 0 rgba(0, 0, 0, 0.15)
+
+.group-image-row
+  margin-bottom .5rem
+  display flex
+  justify-content center
+
+.group-image-wrap
+  flex 1
+  display flex
+  justify-content center
+
+  &:not(:last-child)
+    margin-right .25rem
+
+// checkbox
+input[type=checkbox]
+  margin 0 0.2em 0.2em 0
+  vertical-align middle
