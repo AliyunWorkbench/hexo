@@ -1,0 +1,51 @@
+<% if(theme.post.math.engine === 'mathjax') { %>
+  <%
+    var lazy = theme.lazyload.enable && require_version(theme.static_prefix.mathjax, '3.2.0')
+
+    import_script(`
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              ${ lazy ? 'load: \[\'ui/lazy\'\]' : '' }
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    `)
+
+    import_js(theme.static_prefix.mathjax.replace('es5/', ''), 'es5/tex-mml-chtml.js')
+  %>
+
+<% } else if (theme.post.math.engine === 'katex') { %>
+  <% import_css(theme.static_prefix.katex, 'katex.min.css') %>
+<% } %>
