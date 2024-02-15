@@ -1,0 +1,18 @@
+<div class="footer-inner">
+  <% if (theme.footer.content) { %>
+    <div class="footer-content">
+      <%- theme.footer.content %>
+    </div>
+  <% } %>
+  <% if (theme.footer.statistics.enable) { %>
+    <%- partial('_partials/footer/statistics.ejs') %>
+  <% } %>
+  <% if(theme.footer.beian.enable) { %>
+    <!-- 备案信息 ICP for China -->
+    <%- partial('_partials/footer/beian.ejs') %>
+  <% } %>
+  <% if(theme.web_analytics.cnzz) { %>
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_<%= theme.web_analytics.cnzz %>" style="display: none"></span>
+  <% } %>
+</div>

@@ -1,0 +1,31 @@
+<%- partial('_partials/plugins/nprogress.ejs') %>
+<%- js_ex(theme.static_prefix.jquery, 'jquery.min.js') %>
+<%- js_ex(theme.static_prefix.bootstrap, 'js/bootstrap.min.js') %>
+<%- js_ex(theme.static_prefix.internal_js, 'events.js') %>
+<%- js_ex(theme.static_prefix.internal_js, 'plugins.js') %>
+
+<%- partial('_partials/plugins/typed.ejs') %>
+
+<% if (theme.lazyload.enable){ %>
+  <% if (theme.lazyload.onlypost) { %>
+    <% if (is_post() || is_page()) { %>
+      <%- js_ex(theme.static_prefix.internal_js, 'img-lazyload.js') %>
+    <% } %>
+  <% } else { %>
+    <%- js_ex(theme.static_prefix.internal_js, 'img-lazyload.js') %>
+  <% } %>
+<% } %>
+
+<% var script_snippets = deduplicate(page.script_snippets) %>
+<% for (var idx = 0; idx < script_snippets.length; idx++) { %>
+  <%- script_snippets[idx] %>
+<% } %>
+<% page.script_snippets = [] %>
+
+<% if (theme.custom_js) { %>
+  <%- js(theme.custom_js) %>
+<% } %>
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<%- js_ex(theme.static_prefix.internal_js, 'boot.js') %>
