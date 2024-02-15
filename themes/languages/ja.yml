@@ -1,0 +1,69 @@
+name: '日本語'
+
+home:
+  menu: 'ホーム'
+  title: 'ホーム'
+
+archive:
+  menu: 'アーカイブ'
+  title: 'アーカイブ'
+  subtitle: 'アーカイブ'
+  post_total: '全 %d 件のポスト'
+
+category:
+  menu: 'カテゴリ'
+  title: 'カテゴリ'
+  subtitle: 'カテゴリ'
+  post_total: '全 %d 件のポスト'
+  more: 'More...'
+
+tag:
+  menu: 'タグ'
+  title: 'タグ'
+  subtitle: 'タグ'
+  post_total: '全 %d 件のポスト'
+
+about:
+  menu: 'プロフィール'
+  title: 'プロフィール'
+  subtitle: 'プロフィール'
+
+links:
+  menu: 'リンク'
+  title: 'リンク'
+  subtitle: 'リンク'
+
+page404:
+  menu: 'ページが見つかりませんでした'
+  title: 'ページが見つかりませんでした'
+  subtitle: 'ページが見つかりませんでした'
+
+post:
+  toc: '見出し'
+  prev_post: '前の記事'
+  next_post: '次の記事'
+  updated: '最終更新日：%s'
+  meta:
+    wordcount: '%s 単語'
+    min2read: '%s 分'
+    views: '{} 閲覧'
+  copyright:
+    author: '著者'
+    posted: '作成日'
+    updated: '修正日'
+    licensed: '著作権'
+    CC: 'CC - Creative Commons license'
+    BY: 'BY - Attribution'
+    SA: 'SA - Share-alike'
+    NC: 'NC - Non-commercial'
+    ND: 'ND - No derivative works'
+
+footer:
+  pv: '閲覧合計数: {}'
+  uv: '合計閲覧者数: {}'
+
+search:
+  title: '検索'
+  keyword: 'キーワード'
+
+noscript_warning: 'ブログは JavaScript を有効にすると最適に機能します'

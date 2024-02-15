@@ -1,0 +1,69 @@
+name: 'Esperanto'
+
+home:
+  menu: 'Hejmpaĝo'
+  title: 'Hejmpaĝo'
+
+archive:
+  menu: 'Arkivoj'
+  title: 'Arkivoj'
+  subtitle: 'Arkivoj'
+  post_total: 'Entute %d afiŝoj'
+
+category:
+  menu: 'Kategorio'
+  title: 'Kategorio'
+  subtitle: 'Kategorio'
+  post_total: 'Entute %d afiŝoj'
+  more: 'More...'
+
+tag:
+  menu: 'Etikedoj'
+  title: 'Etikedoj'
+  subtitle: 'Etikedoj'
+  post_total: 'Entute %d afiŝoj'
+
+about:
+  menu: 'Pri'
+  title: 'Pri'
+  subtitle: 'Pri'
+
+links:
+  menu: 'Ligoj'
+  title: 'Ligoj'
+  subtitle: 'Ligoj'
+
+page404:
+  menu: 'Paĝo ne trovita'
+  title: 'Paĝo ne trovita'
+  subtitle: 'Paĝo ne trovita'
+
+post:
+  toc: 'Enhavtabelo'
+  prev_post: 'Antaŭa afiŝo'
+  next_post: 'Sekva afiŝo'
+  updated: 'Aktualizita: %s'
+  meta:
+    wordcount: '%s vortoj'
+    min2read: '%s minutoj'
+    views: '{} rigardoj'
+  copyright:
+    author: 'Aŭtoro'
+    posted: 'Postigita'
+    updated: 'Aktualizita'
+    licensed: 'Lizenta'
+    CC: 'CC - Creative Commons license'
+    BY: 'BY - Attribution'
+    SA: 'SA - Share-alike'
+    NC: 'NC - Non-commercial'
+    ND: 'ND - No derivative works'
+
+footer:
+  pv: 'Vidoj: {}'
+  uv: 'Visitoj: {}'
+
+search:
+  title: 'Serĉi'
+  keyword: 'ŝlosivorto'
+
+noscript_warning: 'Blogo funkcias plej bone kun JavaScript ebligita'
