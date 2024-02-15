@@ -1,0 +1,71 @@
+// font
+$font-size = theme-config("font.font_size", "16px")
+$letter-spacing = theme-config("font.letter_spacing", "0.02em")
+$font-family = theme-config("font.font_family", "var(--font-family-sans-serif)")
+$code-font-size = theme-config("font.code_font_size", "85%")
+
+// body
+$body-bg-color = theme-config("color.body_bg_color", "#eee")
+$body-bg-color-dark = theme-config("color.body_bg_color_dark", "#181c27")
+
+// text
+$text-color = theme-config("color.text_color", "#3c4858")
+$text-color-dark = theme-config("color.text_color_dark", "#c4c6c9")
+$sec-text-color = theme-config("color.sec_text_color", "#718096")
+$sec-text-color-dark = theme-config("color.sec_text_color_dark", "#a7a9ad")
+
+// post
+$post-text-color = theme-config("color.post_text_color", "#2c3e50")
+$post-text-color-dark = theme-config("color.post_text_color_dark", "#c4c6c9")
+$post-heading-color = theme-config("color.post_heading_color", "#1a202c")
+$post-heading-color-dark = theme-config("color.post_heading_color_dark", "#c4c6c9")
+$post-link-color = theme-config("color.post_link_color", "#2c3e50")
+$post-link-color-dark = theme-config("color.post_link_color_dark", "#c4c6c9")
+$link-hover-color = theme-config("color.link_hover_color", "#30a9de")
+$link-hover-color-dark = theme-config("color.link_hover_color_dark", "#30a9de")
+$link-hover-bg-color = theme-config("color.link_hover_bg_color", "#ebedef")
+$link-hover-bg-color-dark = theme-config("color.link_hover_bg_color_dark", "#364151")
+$line-color = theme-config("color.line_color", "#eaecef")
+$line-color-dark = theme-config("color.line_color_dark", "#435266")
+$button-bg-color = theme-config("color.button_bg_color", "#f6f8fa")
+$button-bg-color-dark = theme-config("color.button_bg_color_dark", "#2f4154")
+$button-hover-bg-color = theme-config("color.button_hover_bg_color", "#f2f3f5")
+$button-hover-bg-color-dark = theme-config("color.button_hover_bg_color_dark", "#46647e")
+
+// navbar
+$navbar-bg-color = theme-config("color.navbar_bg_color", "#2f4154")
+$navbar-bg-color-dark = theme-config("color.navbar_bg_color_dark", "#1f3144")
+$navbar-text-color = theme-config("color.navbar_text_color", "#fff")
+$navbar-text-color-dark = theme-config("color.navbar_text_color_dark", "d0d0d0")
+$navbar-glass-enable = theme-config-origin("navbar.ground_glass.enable", false)
+$navbar-glass-px = theme-config-unit("navbar.ground_glass.px", 0, "px")
+$navbar-glass-alpha = theme-config-origin("navbar.ground_glass.alpha", 0)
+
+// banner
+$banner-width-height-ratio = theme-config-origin("banner.width_height_ratio", 0)
+
+// subtitle
+$subtitle-color = theme-config("color.subtitle_color", "#fff")
+$subtitle-color-dark = theme-config("color.subtitle_color_dark", "d0d0d0")
+
+// scroll arrow
+$scroll-arrow-height-limit = theme-config-origin("scroll_down_arrow.banner_height_limit", 0)
+
+// board
+$board-bg-color = theme-config("color.board_color", "#fff")
+$board-bg-color-dark = theme-config("color.board_color_dark", "#252d38")
+
+// scrollbar
+$scrollbar-color = theme-config("color.scrollbar_color", "#c4c6c9")
+$scrollbar-color-dark = theme-config("color.scrollbar_color_dark", "#687582")
+$scrollbar-hover-color = theme-config("color.scrollbar_hover_color", "#a6a6a6")
+$scrollbar-hover-color-dark = theme-config("color.scrollbar_hover_color_dark", "#9da8b3")
+
+// code
+$highlight-bg-color = hexo-config("code.highlight.highlightjs.light.backgroundColor") && hexo-config("code.highlight.highlightjs.light.backgroundColor") != "#fff" ? unquote(hexo-config("code.highlight.highlightjs.light.backgroundColor")):#f6f8fa
+$highlight-bg-color-dark = hexo-config("code.highlight.highlightjs.dark.backgroundColor") && hexo-config("code.highlight.highlightjs.dark.backgroundColor") != "#fff" ? unquote(hexo-config("code.highlight.highlightjs.dark.backgroundColor")):#2d333b
+$inlinecode-bg-color = rgba(175, 184, 193, .2)
+$inlinecode-bg-color-dark = rgba(99, 110, 123, .4)
+
+// shadow
+$img-shadow = 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15)

@@ -1,0 +1,58 @@
+.category-bar
+
+  .category-list
+    max-height 85vh
+    overflow-y auto
+    overflow-x hidden
+
+    &::-webkit-scrollbar
+      display none
+
+    & > .category-sub > a
+      font-weight bold
+      font-size 1.2rem
+
+    .category-item-action i
+      margin 0
+
+    .category-subitem
+      &.list-group-item
+        padding-left .5rem
+        padding-right 0
+
+    .category-collapse
+      .category-post-list
+        margin-top .25rem
+        margin-bottom .5rem
+
+      .category-post
+        font-size .9rem
+        line-height 1.75
+
+    .category-item-action:hover
+      background-color initial
+
+  .list-group-item
+    padding 0
+
+    &.active
+      color var(--link-hover-color)
+      background-color initial
+      font-weight bold
+      font-family "iconfont"
+      font-style normal
+      -webkit-font-smoothing antialiased
+
+      &::before
+        content "\e61f"
+        font-weight initial
+        margin-right .25rem
+
+  .list-group-count
+    margin-left .2rem
+    margin-right .2rem
+    font-size .9em
+
+  .list-group-item-action
+    &:focus, &:hover
+      background-color initial

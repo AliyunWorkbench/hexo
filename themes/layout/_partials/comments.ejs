@@ -1,0 +1,8 @@
+<% if ((!is_post() && !is_page()) || (is_post() && theme.post.comments.enable && page.comments) || (is_page() && page.comments)) { %>
+  <% var commentType = typeof page.comment === 'string' && page.comment !== '' ? page.comment : theme.post.comments.type %>
+  <% if (commentType) { %>
+    <article id="comments">
+      <%- partial('_partials/comments/' + commentType) %>
+    </article>
+  <% } %>
+<% } %>

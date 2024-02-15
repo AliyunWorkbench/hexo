@@ -1,0 +1,179 @@
+.post-content, post-custom
+  box-sizing border-box
+  padding-left 10%
+  padding-right 10%
+
+@media (max-width: 767px)
+  .post-content, post-custom
+    padding-left 2rem
+    padding-right 2rem
+
+@media (max-width: 424px)
+  .post-content, post-custom
+    padding-left 1rem
+    padding-right 1rem
+
+  .anchorjs-link-left
+    opacity 0 !important
+
+.page-content, .post-content
+  strong
+    font-weight bold
+
+  & > *:nth-child(2)
+    margin-top 0
+
+  img
+    object-fit cover
+    max-width 100%
+
+@media (max-width: 767px)
+  .page-content, .post-content
+    overflow-x hidden
+
+.post-metas
+  display flex
+  flex-wrap wrap
+  font-size .9rem
+
+.post-meta
+
+  & > *:not(.hover-with-bg)
+    margin-right .2rem
+
+.post-prevnext
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  font-size .9rem
+  margin-left -.35rem
+  margin-right -.35rem
+
+  .post-prev, .post-next
+    display flex
+    padding-left 0
+    padding-right 0
+
+    i
+      font-size 1.5rem
+
+    a
+      display flex
+      align-items center
+
+    .hidden-mobile
+      display -webkit-box
+      -webkit-box-orient vertical
+      -webkit-line-clamp 2
+      text-overflow ellipsis
+      overflow hidden
+
+    @media (max-width: 575px)
+      .hidden-mobile
+        display none
+
+  .post-prev:hover i, .post-prev:active i, .post-next:hover i, .post-next:active i
+    -webkit-animation-duration 1s
+    animation-duration 1s
+    -webkit-animation-delay .1s
+    animation-delay .1s
+    -webkit-animation-timing-function ease-in-out
+    animation-timing-function ease-in-out
+    -webkit-animation-iteration-count infinite
+    animation-iteration-count infinite
+    -webkit-animation-fill-mode forwards
+    animation-fill-mode forwards
+    -webkit-animation-direction alternate
+    animation-direction alternate
+
+  .post-prev:hover i, .post-prev:active i
+    -webkit-animation-name post-prev-anim
+    animation-name post-prev-anim
+
+  .post-next:hover i, .post-next:active i
+    -webkit-animation-name post-next-anim
+    animation-name post-next-anim
+
+  .post-next
+    justify-content flex-end
+
+  .fa-chevron-left
+    margin-right .5rem
+
+  .fa-chevron-right
+    margin-left .5rem
+
+@keyframes post-prev-anim
+  0%
+    -webkit-transform translateX(0)
+    transform translateX(0)
+  50%
+    -webkit-transform translateX(-0.35rem)
+    transform translateX(-0.35rem)
+  100%
+    -webkit-transform translateX(0)
+    transform translateX(0)
+
+@keyframes post-next-anim
+  0%
+    -webkit-transform translateX(0)
+    transform translateX(0)
+  50%
+    -webkit-transform translateX(0.35rem)
+    transform translateX(0.35rem)
+  100%
+    -webkit-transform translateX(0)
+    transform translateX(0)
+
+#seo-header
+  color var(--post-heading-color)
+  font-weight bold
+  margin-top 0.5em
+  margin-bottom 0.75em
+  border-bottom-color var(--line-color)
+  border-bottom-style solid
+  border-bottom-width 2px
+  line-height 1.5
+
+.custom, #comments
+  margin-top 2rem
+
+#comments
+  noscript
+    display block
+    text-align center
+    padding 2rem 0
+
+.visitors
+  font-size .8em
+  padding .45rem
+  float right
+
+a.fancybox:hover
+  text-decoration none
+
+// Rewrite mathjax
+mjx-container, .mjx-container
+  overflow-x auto
+  overflow-y hidden !important
+  padding .5em 0
+
+  &:focus, svg:focus
+    outline none
+
+.mjx-char
+  line-height 1
+
+// Rewrite katex
+.katex-block
+  overflow-x auto
+
+.katex, .mjx-mrow
+  white-space pre-wrap !important
+
+// Rewrite hint
+.footnote-ref [class*=hint--][aria-label]:after
+  max-width 12rem
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis

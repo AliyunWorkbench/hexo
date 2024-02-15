@@ -1,0 +1,79 @@
+:root
+  --color-mode "light"
+  --body-bg-color $body-bg-color
+  --board-bg-color $board-bg-color
+  --text-color $text-color
+  --sec-text-color $sec-text-color
+  --post-text-color $post-text-color
+  --post-heading-color $post-heading-color
+  --post-link-color $post-link-color
+  --link-hover-color $link-hover-color
+  --link-hover-bg-color $link-hover-bg-color
+  --line-color $line-color
+  --navbar-bg-color $navbar-bg-color
+  --navbar-text-color $navbar-text-color
+  --subtitle-color $subtitle-color
+  --scrollbar-color $scrollbar-color
+  --scrollbar-hover-color $scrollbar-hover-color
+  --button-bg-color $button-bg-color
+  --button-hover-bg-color $button-hover-bg-color
+  --highlight-bg-color $highlight-bg-color
+  --inlinecode-bg-color $inlinecode-bg-color
+  --fold-title-color $text-color
+  --fold-border-color $line-color
+
+dark-colors()
+  --body-bg-color $body-bg-color-dark
+  --board-bg-color $board-bg-color-dark
+  --text-color $text-color-dark
+  --sec-text-color $sec-text-color-dark
+  --post-text-color $post-text-color-dark
+  --post-heading-color $post-heading-color-dark
+  --post-link-color $post-link-color-dark
+  --link-hover-color $link-hover-color-dark
+  --link-hover-bg-color $link-hover-bg-color-dark
+  --line-color $line-color-dark
+  --navbar-bg-color $navbar-bg-color-dark
+  --navbar-text-color $navbar-text-color-dark
+  --subtitle-color $subtitle-color-dark
+  --scrollbar-color $scrollbar-color-dark
+  --scrollbar-hover-color $scrollbar-hover-color-dark
+  --button-bg-color $button-bg-color-dark
+  --button-hover-bg-color $button-hover-bg-color-dark
+  --highlight-bg-color $highlight-bg-color-dark
+  --inlinecode-bg-color $inlinecode-bg-color-dark
+  --fold-title-color $text-color-dark
+  --fold-border-color $line-color-dark
+
+  img
+    -webkit-filter brightness(.9)
+    filter brightness(.9)
+    transition filter .2s ease-in-out
+
+  .navbar .dropdown-collapse, .top-nav-collapse, .navbar-col-show
+    if $navbar-glass-enable
+      ground-glass($navbar-glass-px, $navbar-bg-color-dark, $navbar-glass-alpha)
+
+  .license-box
+    background-color rgba(#3e4b5e, .35)
+    transition background-color .2s ease-in-out
+
+  .gt-comment-admin .gt-comment-content
+    background-color transparent
+    transition background-color .2s ease-in-out
+
+if (hexo-config("dark_mode.enable"))
+  @media (prefers-color-scheme: dark)
+    :root
+      --color-mode "dark"
+
+    :root:not([data-user-color-scheme])
+      dark-colors()
+
+  @media not print
+    [data-user-color-scheme="dark"]
+      dark-colors()
+
+  @media print
+    :root
+      --color-mode "light"

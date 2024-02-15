@@ -1,0 +1,13 @@
+<%
+if (theme.code.highlight.lib === 'prismjs') {
+  if (!theme.code.highlight.prismjs.preprocess) {
+    import_js(theme.static_prefix.prismjs, 'components/prism-core.min.js')
+    import_js(theme.static_prefix.prismjs, 'plugins/autoloader/prism-autoloader.min.js')
+  }
+
+  if (theme.code.highlight.line_number) {
+    import_css(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.css')
+    import_js(theme.static_prefix.prismjs, '/plugins/line-numbers/prism-line-numbers.min.js')
+  }
+}
+%>

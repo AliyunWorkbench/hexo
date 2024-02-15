@@ -1,0 +1,69 @@
+name: 'Deutsch'
+
+home:
+  menu: 'Startseite'
+  title: 'Startseite'
+
+archive:
+  menu: 'Archiv'
+  title: 'Archiv'
+  subtitle: 'Archiv'
+  post_total: 'Insgesamt %d Artikel'
+
+category:
+  menu: 'Kategorien'
+  title: 'Kategorien'
+  subtitle: 'Kategorien'
+  post_total: 'Insgesamt %d Artikel'
+  more: 'More...'
+
+tag:
+  menu: 'Schlagwörter'
+  title: 'Schlagwörter'
+  subtitle: 'Schlagwörter'
+  post_total: 'Insgesamt %d Artikel'
+
+about:
+  menu: 'Über'
+  title: 'Über'
+  subtitle: 'Über'
+
+links:
+  menu: 'Weblinks'
+  title: 'Weblinks'
+  subtitle: 'Weblinks'
+
+page404:
+  menu: 'Die Seite wurde nicht gefunden'
+  title: 'Die Seite wurde nicht gefunden'
+  subtitle: 'Die Seite wurde nicht gefunden'
+
+post:
+  toc: 'Inhaltsverzeichnis'
+  prev_post: 'Vorheriger'
+  next_post: 'Nächster'
+  updated: 'Geändert am %s'
+  meta:
+    wordcount: '%s wörter'
+    min2read: '%s minuten'
+    views: '{} ansichten'
+  copyright:
+    author: 'Beitragsautor'
+    posted: 'Veröffentlicht am'
+    updated: 'Geändert am'
+    licensed: 'Urheberrechtshinweis'
+    CC: 'CC - Creative Commons license'
+    BY: 'BY - Attribution'
+    SA: 'SA - Share-alike'
+    NC: 'NC - Non-commercial'
+    ND: 'ND - No derivative works'
+
+footer:
+  pv: 'Alle Aufrufe: {}'
+  uv: 'Alle Besucher: {}'
+
+search:
+  title: 'Suchen'
+  keyword: 'Stichwort'
+
+noscript_warning: 'Blog funktioniert am besten mit aktiviertem JavaScript'

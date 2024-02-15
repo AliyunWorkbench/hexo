@@ -1,0 +1,69 @@
+name: '繁體中文'
+
+home:
+  menu: '首頁'
+  title: '首頁'
+
+archive:
+  menu: '歸檔'
+  title: '歸檔'
+  subtitle: '歸檔'
+  post_total: '共有 %d 篇文章'
+
+category:
+  menu: '分類'
+  title: '分類'
+  subtitle: '分類'
+  post_total: '共有 %d 篇文章'
+  more: 'More...'
+
+tag:
+  menu: '標籤'
+  title: '標籤'
+  subtitle: '標籤'
+  post_total: '共有 %d 篇文章'
+
+about:
+  menu: '關於'
+  title: '關於'
+  subtitle: '關於'
+
+links:
+  menu: '連結'
+  title: '交換連結'
+  subtitle: '交換連結'
+
+page404:
+  menu: '頁面不存在'
+  title: '頁面不存在'
+  subtitle: '頁面不存在'
+
+post:
+  toc: '目錄'
+  prev_post: '上一篇'
+  next_post: '下一篇'
+  updated: '本文最後更新於：%s'
+  meta:
+    wordcount: '%s 字'
+    min2read: '%s 分鐘'
+    views: '{} 次'
+  copyright:
+    author: '作者'
+    posted: '發布於'
+    updated: '更新於'
+    licensed: '許可協議'
+    CC: 'CC - 知識共享許可協議'
+    BY: 'BY - 署名'
+    SA: 'SA - 相同方式共享'
+    NC: 'NC - 非商業性使用'
+    ND: 'ND - 禁止演繹'
+
+footer:
+  pv: '總訪問量 {} 次'
+  uv: '總訪客數 {} 人'
+
+search:
+  title: '搜尋'
+  keyword: '關鍵字'
+
+noscript_warning: '博客在允許 JavaScript 運行的環境下瀏覽效果更佳'

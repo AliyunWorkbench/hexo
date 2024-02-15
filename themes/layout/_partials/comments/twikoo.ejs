@@ -1,0 +1,25 @@
+<% if (theme.twikoo && theme.twikoo.envId) { %>
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.twikoo, 'twikoo.all.min.js') %>', function() {
+        var options = Object.assign(
+          <%- JSON.stringify(theme.twikoo || {}) %>,
+          {
+            el: '#twikoo',
+            path: '<%= theme.twikoo.path %>',
+            onCommentLoaded: function() {
+              Fluid.utils.listenDOMLoaded(function() {
+                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+                Fluid.plugins.imageCaption(imgSelector);
+                Fluid.plugins.fancyBox(imgSelector);
+              });
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>

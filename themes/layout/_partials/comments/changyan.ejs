@@ -1,0 +1,11 @@
+<% if (theme.changyan.appid) { %>
+  <div id="SOHUCS" sid='<%= page.permalink %>'></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#SOHUCS', function() {
+      Fluid.utils.createScript("https://changyan.sohu.com/upload/changyan.js", function() {
+        window.changyan.api.config(<%- JSON.stringify(theme.changyan || {}) %>)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>

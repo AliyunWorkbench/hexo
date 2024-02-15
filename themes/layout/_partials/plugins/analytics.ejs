@@ -1,0 +1,75 @@
+<% if (theme.web_analytics.enable) { %>
+
+  <% if(theme.web_analytics.baidu) { %>
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?<%= theme.web_analytics.baidu %>";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  <% } %>
+
+  <% if (theme.web_analytics.google){ %>
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=<%= theme.web_analytics.google.measurement_id %>", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '<%- theme.web_analytics.google.measurement_id %>');
+        });
+      }
+    </script>
+  <% } %>
+
+  <% if(theme.web_analytics.tencent && theme.web_analytics.tencent.sid && theme.web_analytics.tencent.cid) { %>
+    <!-- Tencent Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _mtac = {};
+        (function() {
+          var mta = document.createElement("script");
+          mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+          mta.setAttribute("name", "MTAH5");
+          mta.setAttribute("sid", "<%= theme.web_analytics.tencent.sid %>");
+          <% if(theme.web_analytics.tencent.cid) { %>
+          mta.setAttribute("cid", "<%= theme.web_analytics.tencent.cid %>");
+          <% } %>
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(mta, s);
+        })();
+      }
+    </script>
+  <% } %>
+
+  <% if(theme.web_analytics.woyaola) { %>
+    <!-- 51.la Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//js.users.51.la/<%= theme.web_analytics.woyaola %>.js');
+      }
+    </script>
+  <% } %>
+
+  <% if(theme.web_analytics.cnzz) { %>
+    <!-- cnzz Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//s4.cnzz.com/z_stat.php?id=<%= theme.web_analytics.cnzz %>&show=pic');
+      }
+    </script>
+  <% } %>
+
+  <% if(theme.web_analytics.leancloud && theme.web_analytics.leancloud.app_id && theme.web_analytics.leancloud.app_key) { %>
+    <% import_js(theme.static_prefix.internal_js, 'leancloud.js', 'defer') %>
+  <% } %>
+<% } %>

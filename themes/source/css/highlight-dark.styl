@@ -1,0 +1,6 @@
+if hexo-config("code.highlight.enable") && hexo-config("dark_mode.enable")
+  if hexo-config("code.highlight.highlightjs.dark.file")
+    @require hexo-config("code.highlight.highlightjs.dark.file")
+
+  if hexo-config("code.highlight.prismjs.dark.file")
+    @require hexo-config("code.highlight.prismjs.dark.file")
