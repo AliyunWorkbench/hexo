@@ -1,0 +1,19 @@
+<%
+page.layout = 'categories'
+page.title = theme.category.title || __('category.title')
+page.subtitle = theme.category.subtitle || __('category.subtitle')
+page.banner_img = theme.category.banner_img
+page.banner_img_height = theme.category.banner_img_height
+page.banner_mask_alpha = theme.category.banner_mask_alpha
+var orderBy = theme.category.order_by || 'name'
+var curCats = site.categories.find({ parent: { $exists: false } }).sort(orderBy).filter(cat => cat.length)
+%>
+
+<%- partial('_partials/category-list', {
+  curCats: curCats,
+  params: {
+    orderBy: orderBy,
+    postLimit  : theme.category.post_limit,
+    postOrderBy: theme.category.post_order_by || config.index_generator.order_by
+  }
+}) %>
